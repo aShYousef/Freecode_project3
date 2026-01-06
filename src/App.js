@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import sounds from "./data";
-import "./styles.css";
+import sounds from "./sounds";
+import "./style.css";
 
 function App() {
   const [display, setDisplay] = useState("");
@@ -8,6 +8,7 @@ function App() {
   const playSound = (key, name) => {
     const audio = document.getElementById(key);
     if (!audio) return;
+
     audio.currentTime = 0;
     audio.play();
     setDisplay(name);
@@ -31,7 +32,7 @@ function App() {
     <div id="drum-machine">
       <div id="display">{display}</div>
 
-      <div className="pad-container">
+      <div className="pads">
         {sounds.map((sound) => (
           <div
             key={sound.key}
